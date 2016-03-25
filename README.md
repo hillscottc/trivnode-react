@@ -52,7 +52,7 @@ We will use Bower to gather the React and Babel scripts needed for transformatio
 
 Install Bower
 
-        $ npm install express-generator -g
+        $ npm install bower -g
 
 Initialize bower, accepting the defaults. 
         
