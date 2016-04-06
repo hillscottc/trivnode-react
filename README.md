@@ -6,9 +6,15 @@ On the client-side, [React](https://facebook.github.io/react/) will be used for 
 
 See the [blog_post.md](blog_post.md) for more info.
 
-##  install dependencies:
+## install dependencies:
         
         $ npm install
+        
+## build the app
+Webpack is used to transpile the javascript in `client\src` into a file at  `client\public\js\bundle.js` 
+
+        $ npm run build
+        
         
 ##  run the app:
         
