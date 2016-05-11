@@ -1,9 +1,9 @@
 # Demo with Node, Express, React, and Webpack
 
 
-1. Begun with [christianalfoni's webpack-express-boilerplate](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup)
-2. Check for dependency updates with [ncu](https://www.npmjs.com/package/npm-check-updates)
-
+1. Begun with [christianalfoni's webpack-express-boilerplate](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup).
+2. Updated dependencies with [ncu](https://www.npmjs.com/package/npm-check-updates).
+3. Got the [Redux reddit async example](http://redux.js.org/docs/advanced/ExampleRedditAPI.html) working.
 
 
 ## Overview
