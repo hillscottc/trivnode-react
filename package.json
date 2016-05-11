@@ -1,23 +1,20 @@
 {
-  "name": "webpack-express-boilerplate",
+  "name": "demo-react",
   "version": "0.1.0",
-  "description": "A boilerplate for running a Webpack workflow in Node express",
+  "description": "A demo react app",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/christianalfoni/webpack-express-boilerplate.git"
+    "url": "https://github.com/hillscottc/demo-react"
   },
   "keywords": [
     "express",
     "webpack",
-    "node"
+    "node",
+    "react"
   ],
-  "author": "Christian Alfoni",
+  "author": "Scott Hill",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/christianalfoni/webpack-express-boilerplate/issues"
-  },
-  "homepage": "https://github.com/christianalfoni/webpack-express-boilerplate",
   "scripts": {
     "test": "",
     "start": "node server",

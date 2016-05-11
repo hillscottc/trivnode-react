@@ -1,7 +1,7 @@
 # Demo with Node, Express, React, and Webpack
 
 
-Begun with a [christianalfoni's webpack setup](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup)
+Begun with [christianalfoni's webpack-express-boilerplate](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup)
 
 Node and npm handle the server-side components of the app. We will build a basic [Express](http://expressjs.com/) web framework serving [Jade](http://jade-lang.com/) templated files, which is the default for the [express-generator](http://expressjs.com/en/starter/generator.html). 
 
