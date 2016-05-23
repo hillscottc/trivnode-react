@@ -1,29 +1,29 @@
-# Demo Express, React, and Webpack
+# webpack-express-boilerplate
 
-## Overview
+Based on [The ultimate Webpack setup](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup) boilerplate.
 
-Webpack, Express, React+Redux
+### Features
+- Basic React on the client, no Redux.
+- Hot module replacement in development.
+- [CSS modules](http://glenmaddern.com/articles/css-modules).
 
 
-## Install and Run:
-        
-        $ npm install
-        $ npm start
-        
-        
-### For more debug log output
-Uses the [debug](https://www.npmjs.com/package/debug) logging utility. You can set a system environment variable named DEBUG to see additional log output.
+## Running 
+For development:
+    
+    npm start
+Then navigate to http://localhost:3000 in your browser.
 
-For example, to see all debugging messages, including express, babel, etc:
+For a production build:
 
-        $ DEBUG=* npm start
+    npm build
+Then you can open `./dist/index.html` in your browser.
 
-To see app-specific messages only:
 
-        $ DEBUG=app:* npm start
+### Babel and Linting
+Both Node server and frontend code runs with Babel. And all of it is linted. 
+    
+    npm run eslint
+    npm run jscs
 
-## How it was built
-1. Start with a good React app boilerplate. I went with [christianalfoni's webpack-express-boilerplate](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup). Mainly because its light on the server side (no Universal React), and the webpack configuration is clean.
-2. Updated the bolierplates's dependencies with [ncu](https://www.npmjs.com/package/npm-check-updates).
-3. Got the [Redux reddit async example](http://redux.js.org/docs/advanced/ExampleRedditAPI.html) working.
 

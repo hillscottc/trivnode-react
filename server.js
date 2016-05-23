@@ -1,6 +1,5 @@
 /* eslint no-console: 0 */
 
-var debug = require('debug')('app:server');
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
@@ -13,7 +12,6 @@ const port = isDeveloping ? 3000 : process.env.PORT;
 const app = express();
 
 if (isDeveloping) {
-  debug("Running as developer.");
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,

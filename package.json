@@ -1,38 +1,30 @@
 {
   "name": "demo-react",
   "version": "0.1.0",
-  "description": "A demo react app",
+  "description": "A React demo using the christianalfoni webpack boilerplate",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hillscottc/demo-react"
+    "url": "https://github.com/hillscottc/react-demo.git"
   },
-  "keywords": [
-    "express",
-    "webpack",
-    "node",
-    "react"
-  ],
+  "keywords": ["express", "webpack", "node", "react"],
   "author": "Scott Hill",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hillscottc/demo-react/issues"
+  },
+  "homepage": "https://github.com/hillscottc/react-demo.git",
   "scripts": {
     "test": "",
     "start": "node server",
-    "build": "rimraf dist && set NODE_ENV=production && webpack --config ./webpack.production.config.js --progress --profile --colors",
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint .",
     "jscs": "jscs ."
   },
   "dependencies": {
     "babel-cli": "^6.4.0",
-    "babel-polyfill": "^6.8.0",
-    "debug": "^2.2.0",
-    "isomorphic-fetch": "^2.2.1",
     "react": "^15.0.2",
-    "react-dom": "^15.0.2",
-    "react-redux": "^4.4.5",
-    "redux": "^3.5.2",
-    "redux-logger": "^2.6.1",
-    "redux-thunk": "^2.1.0"
+    "react-dom": "^15.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
@@ -44,14 +36,15 @@
     "babel-preset-react-hmre": "^1.1.0",
     "babel-preset-stage-0": "^6.3.13",
     "chai": "^3.2.0",
+    "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
-    "eslint": "^2.9.0",
+    "eslint": "^2.10.2",
     "eslint-plugin-react": "^5.1.1",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
-    "html-webpack-plugin": "^2.16.1",
+    "html-webpack-plugin": "^2.17.0",
     "jscs": "^3.0.3",
-    "jsdom": "^9.0.0",
+    "jsdom": "^9.1.0",
     "json-loader": "^0.5.3",
     "mocha": "^2.3.3",
     "mocha-jsdom": "^1.0.0",

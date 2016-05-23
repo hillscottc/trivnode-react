@@ -1,10 +1,6 @@
-*.log
-*.pid
-*.seed
-.lock-wscript
-lib-cov
-coverage
 node_modules
-bower_components
-.idea
+.DS_Store
 dist
+*.log
+coverage
+.idea
