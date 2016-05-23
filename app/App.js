@@ -2,7 +2,6 @@ import React from 'react';
 import Selector from './components/Selector'
 import Button from './components/Button'
 import LikeButton from './components/LikeButton'
-import FileUploader from './components/FileUploader'
 import styles from './App.css';
 
 export default class App extends React.Component {
@@ -30,11 +29,8 @@ export default class App extends React.Component {
           <Selector value={'frontend'}
                     onChange={this.selectChange}
                     options={['reactjs', 'frontend']} />
-          <Button value={'Click me.'}
-                    onClick={this.buttonClick}/>
+          <Button value={'Click me.'} onClick={this.buttonClick}/>
           <LikeButton />
-          <FileUploader />
-
         </div>
     );
   }
