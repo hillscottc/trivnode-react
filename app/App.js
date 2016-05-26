@@ -1,8 +1,13 @@
 import React from 'react';
-import Selector from './components/Selector'
 import Button from './components/Button'
 import LikeButton from './components/LikeButton'
+import ClueList from './components/ClueList'
 import styles from './App.css';
+
+const someClues = [
+  {"id":1, "category": "philosophy", "question": "why", "answer": "because"},
+  {"id":2, "category": "history", "question": "when", "answer": "then"}
+];
 
 export default class App extends React.Component {
   constructor(props) {
@@ -21,14 +26,11 @@ export default class App extends React.Component {
     console.log("Clicked " + value);
   }
 
-
   render() {
 
     return (
         <div className={styles.app}>
-          <Selector value={'frontend'}
-                    onChange={this.selectChange}
-                    options={['reactjs', 'frontend']} />
+          <ClueList clues={someClues} />
           <Button value={'Click me.'} onClick={this.buttonClick}/>
           <LikeButton />
         </div>
