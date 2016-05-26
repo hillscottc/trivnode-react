@@ -11,10 +11,13 @@ export default class Clue extends React.Component {
   }
 
   answerChange(value) {
-    const results = this.fuzzyMatch(value);
-    console.log("Your answer is " + results);
-    // this.setState({correct: results});
-    this.refs.results.innerHTML = results;
+    const isCorrect = this.fuzzyMatch(value);
+
+    // this does not seem to be causing a re-render,
+    // so i have to use the refs to force updtae. why?
+    this.setState({correct: isCorrect});
+
+    this.refs.results.innerHTML = isCorrect;
   }
 
   fuzzyMatch(guess){
@@ -54,7 +57,7 @@ export default class Clue extends React.Component {
           </div>
           <button type="button" onClick={this.showAnswer}>Tell me</button>
           <span ref="results">
-            {correct}hello
+            {correct}
           </span>
         </div>
     );

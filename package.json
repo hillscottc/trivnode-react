@@ -7,7 +7,12 @@
     "type": "git",
     "url": "https://github.com/hillscottc/react-demo.git"
   },
-  "keywords": ["express", "webpack", "node", "react"],
+  "keywords": [
+    "express",
+    "webpack",
+    "node",
+    "react"
+  ],
   "author": "Scott Hill",
   "license": "MIT",
   "bugs": {
@@ -22,7 +27,9 @@
     "jscs": "jscs ."
   },
   "dependencies": {
+    "axios": "^0.11.1",
     "babel-cli": "^6.4.0",
+    "pg": "^4.5.5",
     "react": "^15.0.2",
     "react-dom": "^15.0.2"
   },
