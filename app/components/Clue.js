@@ -13,7 +13,8 @@ export default class Clue extends React.Component {
   answerChange(value) {
     const results = this.fuzzyMatch(value);
     console.log("Your answer is " + results);
-    this.setState({correct: results});
+    // this.setState({correct: results});
+    this.refs.results.innerHTML = results;
   }
 
   fuzzyMatch(guess){
@@ -35,10 +36,6 @@ export default class Clue extends React.Component {
     this.refs.answer.value = this.state.clue.answer;
   }
 
-  // handleClick() {
-  //   this.setState({liked: !this.state.liked});
-  // }
-
   render() {
     // const clue = this.state.clue;
     const {clue, correct} = this.state;
@@ -57,7 +54,7 @@ export default class Clue extends React.Component {
           </div>
           <button type="button" onClick={this.showAnswer}>Tell me</button>
           <span ref="results">
-            {correct}
+            {correct}hello
           </span>
         </div>
     );
