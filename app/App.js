@@ -3,6 +3,7 @@ import axios from 'axios';
 import Button from './components/Button'
 import LikeButton from './components/LikeButton'
 import ClueList from './components/ClueList'
+import Header from './components/Header'
 import styles from './App.css';
 
 
@@ -35,10 +36,8 @@ export default class App extends React.Component {
     const {clues} = this.state;
     return (
         <div className={styles.app}>
-          <a href="/api/clues">clues api</a>
+          <Header />
           <ClueList clues={clues} />
-          <div>
-          </div>
           <Button value={'Click me.'} onClick={this.buttonClick}/>
           <LikeButton />
         </div>

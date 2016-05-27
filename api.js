@@ -9,7 +9,7 @@ router.get( '/', (request, response) => {
 });
 
 
-// GET /api/clues -- 100 RANDOM clues
+// GET /api/clues -- 10 RANDOM clues
 router.get('/clues', (req, res) => {
   var results = [];
   pg.connect(process.env.DATABASE_URL, (err, client, done) => {
@@ -21,7 +21,7 @@ router.get('/clues', (req, res) => {
     // join with category name
     var query = client.query(
         "SELECT b.clue_id, a.category_name AS category, b.question, b.answer FROM clue AS b " +
-        "JOIN category AS a ON a.category_id = b.category_id ORDER BY random() LIMIT 100;");
+        "JOIN category AS a ON a.category_id = b.category_id ORDER BY random() LIMIT 10;");
     query.on('row', (row) => {
       results.push(row);
     });
