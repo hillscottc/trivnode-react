@@ -12,13 +12,7 @@ const someClues = [
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.selectChange = this.selectChange.bind(this);
     this.buttonClick = this.buttonClick.bind(this);
-  }
-
-  selectChange(value) {
-    // this.props.dispatch(selectReddit(nextReddit));
-    console.log("Selected " + value);
   }
 
   buttonClick(value) {
@@ -27,10 +21,12 @@ export default class App extends React.Component {
   }
 
   render() {
-
     return (
         <div className={styles.app}>
+          <a href="/api/clues">clues api</a>
           <ClueList clues={someClues} />
+          <div>
+          </div>
           <Button value={'Click me.'} onClick={this.buttonClick}/>
           <LikeButton />
         </div>
