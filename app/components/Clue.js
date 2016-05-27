@@ -5,19 +5,20 @@ import styles from './Clue.css';
 export default class Clue extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {clue: props.clue, correct: false};
+    this.state = {clue: props.clue, correct: "No", showAnswer: false};
     this.answerChange = this.answerChange.bind(this);
     this.showAnswer = this.showAnswer.bind(this);
+    this.checkAnswer = this.checkAnswer.bind(this);
   }
 
   answerChange(value) {
-    const isCorrect = this.fuzzyMatch(value);
+    const isCorrect = this.fuzzyMatch(value) ? "Yes" : "No";
 
     // this does not seem to be causing a re-render,
     // so i have to use the refs to force updtae. why?
     this.setState({correct: isCorrect});
 
-    this.refs.results.innerHTML = isCorrect;
+    // this.refs.results.innerHTML = isCorrect;
   }
 
   fuzzyMatch(guess){
@@ -36,12 +37,21 @@ export default class Clue extends React.Component {
   }
 
   showAnswer() {
-    this.refs.answer.value = this.state.clue.answer;
+    this.setState({showAnswer: true});
+  }
+
+  checkAnswer() {
+    // const isCorrect = this.fuzzyMatch(value);
+    // console.log("Check answer " + isCorrect);
+    // this.setState({correct: isCorrect});
+    this.setState({correct: "Yes"});
   }
 
   render() {
     // const clue = this.state.clue;
-    const {clue, correct} = this.state;
+    const {clue, correct, showAnswer} = this.state;
+    const answerText = showAnswer ? clue.answer : '';
+
     return (
         <div className={styles.clue}>
           <div>
@@ -53,12 +63,20 @@ export default class Clue extends React.Component {
           </div>
           <div>
             <label>A:</label>
-            <input type="text" ref="answer" onChange={e => this.answerChange(e.target.value)} />
+            <input type="text" ref="answer"
+                   onChange={e => this.answerChange(e.target.value)} />
           </div>
           <button type="button" onClick={this.showAnswer}>Tell me</button>
-          <span ref="results">
+          <span>{answerText}</span>
+
+          <button type="button" onClick={this.checkAnswer}>Check answer</button>
+          <span>Correct?...{correct}</span>
+
+
+          <p>
             {correct}
-          </span>
+          </p>
+
         </div>
     );
   }
