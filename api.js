@@ -1,18 +1,18 @@
-var express = require('express'),
-    router = express.Router(),
-    pg = require('pg');
+const express = require('express');
+const  router = express.Router();
+const pg = require('pg');
 
 
 // GET /api page.
-router.get( '/', function(request, response ) {
+router.get( '/', (request, response) => {
   response.render('api', { site_name: 'TrivNode' });
 });
 
 
 // GET /api/clues -- 100 RANDOM clues
-router.get('/clues', function(req, res) {
+router.get('/clues', (req, res) => {
   var results = [];
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  pg.connect(process.env.DATABASE_URL, (err, client, done) => {
     if(err) {
       done();
       console.log(err);
@@ -22,10 +22,10 @@ router.get('/clues', function(req, res) {
     var query = client.query(
         "SELECT a.category_name AS category, b.question, b.answer FROM clue AS b " +
         "JOIN category AS a ON a.category_id = b.category_id ORDER BY random() LIMIT 100;");
-    query.on('row', function(row) {
+    query.on('row', (row) => {
       results.push(row);
     });
-    query.on('end', function() {
+    query.on('end', () => {
       done();
       return res.json(results);
     });
@@ -34,9 +34,9 @@ router.get('/clues', function(req, res) {
 
 
 // GET /api/clues/cat/{id} -- clues by cat id
-router.get('/clues/cat/:id', function(req, res) {
+router.get('/clues/cat/:id', (req, res) => {
   var results = [];
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  pg.connect(process.env.DATABASE_URL, (err, client, done) => {
     if(err) {
       done();
       console.log(err);
@@ -46,10 +46,10 @@ router.get('/clues/cat/:id', function(req, res) {
         "SELECT a.category_name AS category, b.question, b.answer FROM clue AS b " +
         "JOIN category AS a ON a.category_id = b.category_id " +
         "WHERE b.category_id = $1;", [req.params.id]);
-    query.on('row', function(row) {
+    query.on('row', (row) => {
       results.push(row);
     });
-    query.on('end', function() {
+    query.on('end', () => {
       done();
       return res.json(results);
     });
@@ -59,19 +59,19 @@ router.get('/clues/cat/:id', function(req, res) {
 
 
 // GET /api/cats -- 20 RANDOM categories
-router.get('/cats', function(req, res) {
+router.get('/cats', (req, res) => {
   var results = [];
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  pg.connect(process.env.DATABASE_URL, (err, client, done) => {
     if(err) {
       done();
       console.log(err);
       return res.status(500).json({ success: false, data: err});
     }
     var query = client.query("SELECT * FROM category ORDER BY random() LIMIT 20;");
-    query.on('row', function(row) {
+    query.on('row', (row)  =>{
       results.push(row);
     });
-    query.on('end', function() {
+    query.on('end', ()  =>{
       done();
       return res.json(results);
     });
