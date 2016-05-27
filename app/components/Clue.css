@@ -1,8 +1,18 @@
-.clue {
+.active {
     background-color: #2b81af;
     border: 1px solid blue;
     padding: 5px;
 }
+
+.inactive {
+    border: 1px solid blue;
+    padding: 5px;
+}
+
+.answerSection {
+    visibility: hidden;
+}
+
 
 .clue label {
     background-color: green;

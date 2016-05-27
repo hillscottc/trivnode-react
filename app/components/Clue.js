@@ -4,9 +4,15 @@ import styles from './Clue.css';
 export default class Clue extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {clue: props.clue, correct: false, showAnswer: false};
+    this.state = {
+      clue: props.clue,
+      correct: false,
+      showAnswer: false,
+      isActive: false
+    };
     this.answerChange = this.answerChange.bind(this);
     this.showAnswer = this.showAnswer.bind(this);
+    this.toggleClue = this.toggleClue.bind(this);
   }
 
   answerChange(value) {
@@ -29,11 +35,18 @@ export default class Clue extends React.Component {
     this.setState({showAnswer: true});
   }
 
+  toggleClue() {
+    this.setState({isActive: !this.state.isActive});
+    this.refs.answerSection.style.visibility = "visible";
+  }
+
   render() {
-    const {clue, correct, showAnswer} = this.state;
+    const {clue, correct, showAnswer, isActive} = this.state;
+    
+    const activeClass = isActive ? styles.active : styles.inactive;
 
     return (
-        <div className={styles.clue}>
+        <div className={activeClass} onClick={this.toggleClue}>
           <div>
             <span>{clue.category}</span>
           </div>
@@ -41,17 +54,15 @@ export default class Clue extends React.Component {
             <label>Q:</label>
             <span>{clue.question}</span>
           </div>
-          <div>
+          <div className={styles.answerSection} ref="answerSection">
             <label>A:</label>
             <input type="text" ref="answer"
                    onChange={e => this.answerChange(e.target.value)} />
             <span> {correct ? "Right!!" : ""}</span>
-          </div>
-          <div>
             <button type="button" onClick={this.showAnswer}>Tell me</button>
             <span> {showAnswer ? clue.answer : ''}</span>
           </div>
-        </div>
+         </div>
     );
   }
 }
