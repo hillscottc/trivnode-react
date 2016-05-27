@@ -4,7 +4,7 @@ import Clue from './Clue'
 const ClueList = ({ clues }) => (
     <div>
       {clues.map((clue) =>
-          <Clue key={clue.id}
+          <Clue key={clue.clue_id}
                 clue={clue} />
       )}
     </div>

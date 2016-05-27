@@ -20,7 +20,7 @@ router.get('/clues', (req, res) => {
     }
     // join with category name
     var query = client.query(
-        "SELECT a.category_name AS category, b.question, b.answer FROM clue AS b " +
+        "SELECT b.clue_id, a.category_name AS category, b.question, b.answer FROM clue AS b " +
         "JOIN category AS a ON a.category_id = b.category_id ORDER BY random() LIMIT 100;");
     query.on('row', (row) => {
       results.push(row);
