@@ -7,12 +7,9 @@ export default class Clue extends React.Component {
     this.state = {
       clue: props.clue,
       correct: false,
-      showAnswer: false,
-      isActive: false
-    };
+      showAnswer: false};
     this.answerChange = this.answerChange.bind(this);
     this.showAnswer = this.showAnswer.bind(this);
-    // this.toggleClue = this.toggleClue.bind(this);
   }
 
   answerChange(value) {
@@ -35,16 +32,9 @@ export default class Clue extends React.Component {
     this.setState({showAnswer: true});
   }
 
-  // toggleClue() {
-  //   this.setState({isActive: !this.state.isActive});
-  //   this.refs.answerSection.style.visibility = "visible";
-  // }
-
   render() {
-    const {clue, correct, showAnswer, isActive} = this.state;
+    const {clue, correct, showAnswer} = this.state;
     
-    // const activeClass = isActive ? styles.active : styles.inactive;
-
     return (
         <Panel >
           <div>
