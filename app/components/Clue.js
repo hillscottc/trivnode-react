@@ -12,7 +12,7 @@ export default class Clue extends React.Component {
     };
     this.answerChange = this.answerChange.bind(this);
     this.showAnswer = this.showAnswer.bind(this);
-    this.toggleClue = this.toggleClue.bind(this);
+    // this.toggleClue = this.toggleClue.bind(this);
   }
 
   answerChange(value) {
@@ -35,10 +35,10 @@ export default class Clue extends React.Component {
     this.setState({showAnswer: true});
   }
 
-  toggleClue() {
-    this.setState({isActive: !this.state.isActive});
-    this.refs.answerSection.style.visibility = "visible";
-  }
+  // toggleClue() {
+  //   this.setState({isActive: !this.state.isActive});
+  //   this.refs.answerSection.style.visibility = "visible";
+  // }
 
   render() {
     const {clue, correct, showAnswer, isActive} = this.state;
@@ -46,7 +46,7 @@ export default class Clue extends React.Component {
     const activeClass = isActive ? styles.active : styles.inactive;
 
     return (
-        <div className={activeClass} onClick={this.toggleClue}>
+        <div className={activeClass}>
           <div>
             <span>{clue.category}</span>
           </div>
