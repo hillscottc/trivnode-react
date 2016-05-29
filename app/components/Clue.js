@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Clue.css';
+import { Button } from 'react-bootstrap';
 
 export default class Clue extends React.Component {
   constructor(props) {
@@ -59,7 +60,9 @@ export default class Clue extends React.Component {
             <input type="text" ref="answer"
                    onChange={e => this.answerChange(e.target.value)} />
             <span> {correct ? "Right!!" : ""}</span>
-            <button type="button" onClick={this.showAnswer}>Tell me</button>
+            <Button bsStyle="success" bsSize="small" onClick={this.showAnswer}>
+              Tell Me
+            </Button>
             <span> {showAnswer ? clue.answer : ''}</span>
           </div>
          </div>
