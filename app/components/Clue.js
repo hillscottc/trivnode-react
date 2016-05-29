@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Panel } from 'react-bootstrap';
+import { Button, Panel, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
 export default class Clue extends React.Component {
   constructor(props) {
@@ -46,7 +46,6 @@ export default class Clue extends React.Component {
     // const activeClass = isActive ? styles.active : styles.inactive;
 
     return (
-
         <Panel >
           <div>
             <span>{clue.category}</span>
@@ -55,16 +54,22 @@ export default class Clue extends React.Component {
             <label>Q:</label>
             <span>{clue.question}</span>
           </div>
-          <div ref="answerSection">
-            <label>A:</label>
-            <input type="text" ref="answer"
-                   onChange={e => this.answerChange(e.target.value)} />
-            <span> {correct ? "Right!!" : ""}</span>
-            <Button bsStyle="success" bsSize="small" onClick={this.showAnswer}>
-              Tell Me
-            </Button>
-            <span> {showAnswer ? clue.answer : ''}</span>
-          </div>
+          <form>
+            <FormGroup controlId={clue.clue_id + '_answer'}>
+              <FormControl
+                  ref="answer"
+                  type="text"
+                  value={this.state.value}
+                  placeholder="Your answer..."
+                  onChange={e => this.answerChange(e.target.value)}
+              />
+              <span> {correct ? "Right!!" : ""}</span>
+            </FormGroup>
+          </form>
+          <Button bsStyle="success" bsSize="small" onClick={this.showAnswer}>
+            Tell Me
+          </Button>
+          <span> {showAnswer ? clue.answer : ''}</span>
         </Panel>
     );
   }
