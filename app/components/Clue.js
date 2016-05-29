@@ -1,6 +1,5 @@
 import React from 'react'
-import styles from './Clue.css';
-import { Button } from 'react-bootstrap';
+import { Button, Panel } from 'react-bootstrap';
 
 export default class Clue extends React.Component {
   constructor(props) {
@@ -44,10 +43,11 @@ export default class Clue extends React.Component {
   render() {
     const {clue, correct, showAnswer, isActive} = this.state;
     
-    const activeClass = isActive ? styles.active : styles.inactive;
+    // const activeClass = isActive ? styles.active : styles.inactive;
 
     return (
-        <div className={activeClass}>
+
+        <Panel >
           <div>
             <span>{clue.category}</span>
           </div>
@@ -55,7 +55,7 @@ export default class Clue extends React.Component {
             <label>Q:</label>
             <span>{clue.question}</span>
           </div>
-          <div className={styles.answerSection} ref="answerSection">
+          <div ref="answerSection">
             <label>A:</label>
             <input type="text" ref="answer"
                    onChange={e => this.answerChange(e.target.value)} />
@@ -65,7 +65,7 @@ export default class Clue extends React.Component {
             </Button>
             <span> {showAnswer ? clue.answer : ''}</span>
           </div>
-         </div>
+        </Panel>
     );
   }
 }

@@ -1,22 +1,26 @@
-.active {
-    background-color: #2b81af;
-    border: 1px solid blue;
-    padding: 5px;
-}
+/*.clue {*/
+/*}*/
 
-.inactive {
-    border: 1px solid blue;
-    padding: 5px;
-}
+/*.active {*/
+    /*background-color: #2b81af;*/
+    /*border: 1px solid blue;*/
+    /*padding: 5px;*/
+/*}*/
 
-.answerSection {
-    visibility: visible;
-}
+/*.inactive {*/
+    /*border: 1px solid blue;*/
+    /*padding: 5px;*/
+/*}*/
+
+/*.answerSection {*/
+    /*visibility: visible;*/
+/*}*/
 
 
-.clue label {
-    background-color: green;
-    border: 1px solid blue;
-    padding: 5px;
-    /*display: inline-block;*/
-}
+/*.clue label {*/
+    /*background-color: green;*/
+    /*border: 1px solid blue;*/
+    /*padding: 5px;*/
+    /*!*display: inline-block;*!*/
+/*}*/
+
