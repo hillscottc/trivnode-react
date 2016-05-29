@@ -28,9 +28,6 @@ const ClueList = ({ clues, numToShow, changeNumToShow, numToShowOptions }) => (
     </Panel>
 );
 
-
-
-
 ClueList.propTypes = {
   clues: PropTypes.array.isRequired,
   numToShow: PropTypes.number.isRequired,

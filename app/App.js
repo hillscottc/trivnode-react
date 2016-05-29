@@ -16,12 +16,9 @@ export default class App extends React.Component {
 
   }
 
-  componentDidMount() {
-
-    const {numToShow} = this.state;
-
-    var _this = this;
-
+  updateClues(numToShow) {
+    console.log("getting clues", numToShow );
+    const _this = this;
     this.serverRequest =
         axios
             .get(`/api/clues/${numToShow}`)
@@ -30,6 +27,10 @@ export default class App extends React.Component {
                 clues: result.data
               });
             })
+  }
+
+  componentDidMount() {
+    this.updateClues(this.state.numToShow);
   }
 
   buttonClick(value) {
@@ -41,6 +42,7 @@ export default class App extends React.Component {
     // this.props.dispatch(selectReddit(nextReddit));
     console.log("Change to " + value);
     this.setState({numToShow: parseInt(value)});
+    this.updateClues(parseInt(value));
   }
 
 
@@ -52,7 +54,7 @@ export default class App extends React.Component {
           <ClueList clues={clues}
                     numToShow={numToShow}
                     changeNumToShow={this.changeNumToShow}
-                    numToShowOptions={["5","10"]} />
+                    numToShowOptions={["3", "5", "10", "50"]} />
           <SampleButton value={'Click me.'} onClick={this.buttonClick}/>
           <LikeButton />
         </div>
