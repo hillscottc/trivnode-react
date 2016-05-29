@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import { Button, Panel, FormGroup, FormControl, ControlLabel  } from 'react-bootstrap';
-import Clue from './Clue'
+import {Panel, FormGroup, ControlLabel  } from 'react-bootstrap';
+import ClueContainer from '../containers/ClueContainer'
 
 const ClueList = ({ clues, numToShow, changeNumToShow, numToShowOptions }) => (
     <Panel>
@@ -21,8 +21,8 @@ const ClueList = ({ clues, numToShow, changeNumToShow, numToShowOptions }) => (
       </div>
       <div>
         {clues.map((clue) =>
-            <Clue key={clue.clue_id}
-                  clue={clue} />
+            <ClueContainer key={clue.clue_id}
+                           clue={clue} />
         )}
       </div>
     </Panel>
