@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import { Panel } from 'react-bootstrap';
 import ClueContainer from './ClueContainer'
 import NumForm from './NumForm'
 
@@ -42,7 +41,7 @@ export default class CluesContainer extends Component {
   render() {
     const {clues, numToShow, numToShowOptions} = this.state;
     return (
-        <Panel>
+        <div>
           <div>
             <NumForm
                 numToShow={numToShow}
@@ -55,7 +54,7 @@ export default class CluesContainer extends Component {
                 <ClueContainer key={clue.clue_id} clue={clue} />
             )}
           </div>
-        </Panel>
+        </div>
     );
   }
 }
