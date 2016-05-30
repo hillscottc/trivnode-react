@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
 
-import Clue from '../components/Clue';
+import Clue from './Clue';
 
 describe('<Clue/>', function () {
 

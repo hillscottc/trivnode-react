@@ -1,6 +1,6 @@
 import React from 'react';
-import CluesContainer from './CluesContainer'
-import Header from '../components/Header'
+import CluesContainer from './components/clues/CluesContainer'
+import Header from './components/Header'
 import styles from './App.css';
 
 export default class App extends React.Component {

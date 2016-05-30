@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import Clue from '../components/Clue'
+import Clue from './Clue'
 
 function fuzzyMatch(guess, answer){
   if (guess === "") return false;
