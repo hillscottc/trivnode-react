@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/hillscottc/react-demo.git",
   "scripts": {
-    "test": "mocha -w test/helpers/browser.js app/components/*.spec.js",
+    "test": "mocha -w --recursive test/helpers/browser.js app/**/*.spec.js",
     "start": "node server",
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint .",
