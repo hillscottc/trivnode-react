@@ -1,4 +1,4 @@
-import React , {PropTypes }  from 'react'
+import React, { PropTypes }  from 'react'
 import { FormGroup, ControlLabel } from 'react-bootstrap';
 
 
@@ -21,7 +21,7 @@ const NumForm = ({ numToShow, changeNumToShow, numToShowOptions }) => (
 NumForm.propTypes = {
   numToShow: PropTypes.number.isRequired,
   changeNumToShow: PropTypes.func.isRequired,
-  numToShowOptions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  numToShowOptions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
 };
 
 export default NumForm;

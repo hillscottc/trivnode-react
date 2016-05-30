@@ -11,16 +11,13 @@ function fuzzyMatch(guess, answer){
 export default class ClueContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      clue: props.clue,
-      correct: false,
-      showAnswer: false};
+    this.state = {correct: false, showAnswer: false};
     this.answerChange = this.answerChange.bind(this);
     this.showAnswerClick = this.showAnswerClick.bind(this);
   }
 
   answerChange(value) {
-    const right = fuzzyMatch(value, this.state.clue.answer);
+    const right = fuzzyMatch(value, this.props.clue.answer);
     this.setState({correct: right, showAnswer: right});
   }
 
@@ -29,7 +26,8 @@ export default class ClueContainer extends React.Component {
   }
 
   render() {
-    const { clue, correct, showAnswer } = this.state;
+    const { correct, showAnswer } = this.state;
+    const { clue } = this.props;
 
     return (
         <Clue
