@@ -43,6 +43,14 @@ Clue.propTypes = {
   answerChange: PropTypes.func.isRequired
 };
 
+Clue.defaultProps = {
+  clue: {clue_id:1, category:"hist", question:"when", answer:"then"},
+  correct: false,
+  showAnswer: false,
+  showAnswerClick: (()  => {}),
+  answerChange: (()  => {})
+};
+
 export default Clue;
 
 
