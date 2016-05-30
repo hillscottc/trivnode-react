@@ -21,8 +21,13 @@ const ClueList = ({ clues, numToShow, changeNumToShow, numToShowOptions }) => (
       </div>
       <div>
         {clues.map((clue) =>
-            <ClueContainer key={clue.clue_id}
-                           clue={clue} />
+            <ClueContainer 
+                key={clue.clue_id}
+                clue_id={clue.clue_id}
+                category={clue.category} 
+                question={clue.question} 
+                answer={clue.answer} 
+            />
         )}
       </div>
     </Panel>

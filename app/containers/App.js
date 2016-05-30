@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import SampleButton from './components/SampleButton'
-import LikeButton from './components/LikeButton'
-import ClueList from './components/ClueList'
-import Header from './components/Header'
+import SampleButton from '../components/SampleButton'
+import LikeButton from '../components/LikeButton'
+import ClueList from '../components/ClueList'
+import Header from '../components/Header'
 import styles from './App.css';
 
 
@@ -51,10 +51,11 @@ export default class App extends React.Component {
     return (
         <div className={styles.app}>
           <Header />
-          <ClueList clues={clues}
-                    numToShow={numToShow}
-                    changeNumToShow={this.changeNumToShow}
-                    numToShowOptions={["3", "5", "10", "50"]} />
+          <ClueList
+                clues={clues}
+                numToShow={numToShow}
+                changeNumToShow={this.changeNumToShow}
+                numToShowOptions={["3", "5", "10", "50"]} />
           <SampleButton value={'Click me.'} onClick={this.buttonClick}/>
           <LikeButton />
         </div>
