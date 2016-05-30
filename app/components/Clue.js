@@ -1,5 +1,4 @@
 import React , {PropTypes }  from 'react'
-import { Button, Panel, FormGroup, FormControl } from 'react-bootstrap';
 
 
 const Clue = ({
@@ -9,7 +8,7 @@ const Clue = ({
     showAnswerClick,
     answerChange
 }) => (
-    <Panel >
+    <div >
       <div>
         <span>{clue.category}</span>
       </div>
@@ -18,20 +17,14 @@ const Clue = ({
         <span>{clue.question}</span>
       </div>
       <form>
-        <FormGroup controlId={clue.clue_id + '_answer'}>
-          <FormControl
-              type="text"
-              placeholder="Your answer..."
-              onChange={e => answerChange(e.target.value)}
-          />
+        <input type="text"
+               placeholder="Your answer..."
+               onChange={e => answerChange(e.target.value)} />
           <span> {correct ? "Right!!" : ""}</span>
-        </FormGroup>
       </form>
-      <Button bsStyle="success" bsSize="small" onClick={showAnswerClick}>
-        Tell Me
-      </Button>
+      <button type="button" onClick={showAnswerClick}>Tell Me</button>
       <span> {showAnswer ? clue.answer : ''}</span>
-    </Panel>
+    </div>
 );
 
 
@@ -47,8 +40,8 @@ Clue.defaultProps = {
   clue: {clue_id:1, category:"hist", question:"when", answer:"then"},
   correct: false,
   showAnswer: false,
-  showAnswerClick: (()  => {}),
-  answerChange: (()  => {})
+  showAnswerClick: (()  => {console.log("Click!")}),
+  answerChange: (()  => {console.log("Click!")})
 };
 
 export default Clue;

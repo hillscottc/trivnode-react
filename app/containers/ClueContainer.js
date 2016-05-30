@@ -44,3 +44,7 @@ export default class ClueContainer extends Component {
 ClueContainer.propTypes = {
   clue: PropTypes.object.isRequired
 };
+
+ClueContainer.defaultProps = {
+  clue: {clue_id:1, category:"hist", question:"when", answer:"then"}
+};
