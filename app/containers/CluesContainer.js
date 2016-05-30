@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react'
+import React, { Component } from 'react'
 import axios from 'axios';
 import { Panel } from 'react-bootstrap';
 import ClueContainer from './ClueContainer'
 import NumForm from '../components/NumForm'
 
 
-export default class CluesContainer extends React.Component {
+export default class CluesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {

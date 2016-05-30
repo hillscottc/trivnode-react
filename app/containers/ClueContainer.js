@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Clue from '../components/Clue'
 
 function fuzzyMatch(guess, answer){
@@ -8,7 +8,7 @@ function fuzzyMatch(guess, answer){
   return (guess.length > 3 && guess_re.test(answer));
 }
 
-export default class ClueContainer extends React.Component {
+export default class ClueContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {correct: false, showAnswer: false};
