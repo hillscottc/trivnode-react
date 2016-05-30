@@ -34,6 +34,7 @@ const Clue = ({
     </Panel>
 );
 
+
 Clue.propTypes = {
   clue: PropTypes.object.isRequired,
   correct: PropTypes.bool.isRequired,
