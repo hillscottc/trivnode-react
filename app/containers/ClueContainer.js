@@ -31,10 +31,7 @@ export default class ClueContainer extends Component {
 
     return (
         <Clue
-            clue_id={clue.clue_id}
-            category={clue.category}
-            question={clue.question}
-            answer={clue.answer}
+            clue={clue}
             correct={correct}
             showAnswer={showAnswer}
             showAnswerClick={this.showAnswerClick}

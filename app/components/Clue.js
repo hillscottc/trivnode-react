@@ -3,10 +3,7 @@ import { Button, Panel, FormGroup, FormControl } from 'react-bootstrap';
 
 
 const Clue = ({
-    clue_id,
-    category,
-    question,
-    answer,
+    clue,
     correct,
     showAnswer,
     showAnswerClick,
@@ -14,14 +11,14 @@ const Clue = ({
 }) => (
     <Panel >
       <div>
-        <span>{category}</span>
+        <span>{clue.category}</span>
       </div>
       <div>
         <label>Q:</label>
-        <span>{question}</span>
+        <span>{clue.question}</span>
       </div>
       <form>
-        <FormGroup controlId={clue_id + '_answer'}>
+        <FormGroup controlId={clue.clue_id + '_answer'}>
           <FormControl
               type="text"
               placeholder="Your answer..."
@@ -33,15 +30,12 @@ const Clue = ({
       <Button bsStyle="success" bsSize="small" onClick={showAnswerClick}>
         Tell Me
       </Button>
-      <span> {showAnswer ? answer : ''}</span>
+      <span> {showAnswer ? clue.answer : ''}</span>
     </Panel>
 );
 
 Clue.propTypes = {
-  clue_id: PropTypes.number.isRequired,
-  category: PropTypes.string.isRequired,
-  question: PropTypes.string.isRequired,
-  answer: PropTypes.string.isRequired,
+  clue: PropTypes.object.isRequired,
   correct: PropTypes.bool.isRequired,
   showAnswer: PropTypes.bool.isRequired,
   showAnswerClick: PropTypes.func.isRequired,
