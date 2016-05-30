@@ -1,23 +1,23 @@
-import React, { Component, PropTypes } from 'react'
-import {Panel, FormGroup, ControlLabel  } from 'react-bootstrap';
+import React, { PropTypes } from 'react'
+import { Panel } from 'react-bootstrap';
 import ClueContainer from '../containers/ClueContainer'
+import NumForm from '../components/NumForm'
+
+
+
+
+
+
+
 
 const ClueList = ({ clues, numToShow, changeNumToShow, numToShowOptions }) => (
     <Panel>
       <div>
-        <form>
-          <FormGroup controlId="numToShow">
-            <ControlLabel>Num to show</ControlLabel>
-            <select onChange={e => changeNumToShow(e.target.value)}
-                    value={numToShow}>
-              {numToShowOptions.map(option =>
-                  <option value={option} key={option}>
-                    {option}
-                  </option>)
-              }
-            </select>
-          </FormGroup>
-        </form>
+        <NumForm
+            numToShow={numToShow}
+            changeNumToShow={changeNumToShow}
+            numToShowOptions={numToShowOptions}
+        />
       </div>
       <div>
         {clues.map((clue) =>
@@ -41,3 +41,8 @@ ClueList.propTypes = {
 };
 
 export default ClueList;
+
+
+
+
+

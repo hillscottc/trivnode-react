@@ -13,7 +13,6 @@ export default class App extends React.Component {
     this.state = {clues: [], numToShow: 3};
     this.buttonClick = this.buttonClick.bind(this);
     this.changeNumToShow = this.changeNumToShow.bind(this);
-
   }
 
   updateClues(numToShow) {
