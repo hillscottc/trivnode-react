@@ -32,15 +32,12 @@ export default class CluesContainer extends React.Component {
   componentDidMount() {
     this.updateClues(this.state.numToShow);
   }
-  
 
   changeNumToShow(value) {
     // this.props.dispatch(selectReddit(nextReddit));
-    console.log("Change to " + value);
     this.setState({numToShow: parseInt(value)});
     this.updateClues(parseInt(value));
   }
-
 
   render() {
     const {clues, numToShow, numToShowOptions} = this.state;
@@ -55,13 +52,7 @@ export default class CluesContainer extends React.Component {
           </div>
           <div>
             {clues.map((clue) =>
-                <ClueContainer
-                    key={clue.clue_id}
-                    clue_id={clue.clue_id}
-                    category={clue.category}
-                    question={clue.question}
-                    answer={clue.answer}
-                />
+                <ClueContainer key={clue.clue_id} clue={clue} />
             )}
           </div>
         </Panel>
@@ -69,9 +60,4 @@ export default class CluesContainer extends React.Component {
   }
 }
 
-// CluesContainer.propTypes = {
-//   clues: PropTypes.array.isRequired,
-//   numToShow: PropTypes.number.isRequired,
-//   changeNumToShow: PropTypes.func.isRequired,
-//   numToShowOptions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
-// };
+CluesContainer.propTypes = {};

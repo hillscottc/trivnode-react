@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {PropTypes }  from 'react'
 import { Button, Panel, FormGroup, FormControl } from 'react-bootstrap';
 
 
@@ -37,11 +37,16 @@ const Clue = ({
     </Panel>
 );
 
-// Clue.propTypes = {
-//   clue: React.PropTypes.instanceOf(Clue)???
-//   value: PropTypes.string.isRequired,
-//   onClick: PropTypes.func.isRequired
-// };
+Clue.propTypes = {
+  clue_id: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
+  question: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired,
+  correct: PropTypes.bool.isRequired,
+  showAnswer: PropTypes.bool.isRequired,
+  showAnswerClick: PropTypes.func.isRequired,
+  answerChange: PropTypes.func.isRequired
+};
 
 export default Clue;
 

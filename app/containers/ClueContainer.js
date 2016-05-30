@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Clue from '../components/Clue'
 
 function fuzzyMatch(guess, answer){
@@ -12,10 +12,7 @@ export default class ClueContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clue_id: props.clue_id,
-      category: props.category,
-      question: props.question,
-      answer: props.answer,
+      clue: props.clue,
       correct: false,
       showAnswer: false};
     this.answerChange = this.answerChange.bind(this);
@@ -23,7 +20,7 @@ export default class ClueContainer extends React.Component {
   }
 
   answerChange(value) {
-    const right = fuzzyMatch(value, this.state.answer);
+    const right = fuzzyMatch(value, this.state.clue.answer);
     this.setState({correct: right, showAnswer: right});
   }
 
@@ -32,21 +29,14 @@ export default class ClueContainer extends React.Component {
   }
 
   render() {
-    const {
-        clue_id,
-        category,
-        question,
-        answer,
-        correct,
-        showAnswer
-    } = this.state;
+    const { clue, correct, showAnswer } = this.state;
 
     return (
         <Clue
-            clue_id={clue_id}
-            category={category}
-            question={question}
-            answer={answer}
+            clue_id={clue.clue_id}
+            category={clue.category}
+            question={clue.question}
+            answer={clue.answer}
             correct={correct}
             showAnswer={showAnswer}
             showAnswerClick={this.showAnswerClick}
@@ -55,3 +45,7 @@ export default class ClueContainer extends React.Component {
     );
   }
 }
+
+ClueContainer.propTypes = {
+  clue: PropTypes.object.isRequired
+};
