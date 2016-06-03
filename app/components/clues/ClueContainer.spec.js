@@ -2,12 +2,12 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
 
-import Clue from './Clue';
+import ClueContainer from './ClueContainer';
 
-describe('<Clue/>', function () {
+describe('<ClueContainer/>', function () {
 
   it('should work', function () {
-    const wrapper = shallow(<Clue/>);
+    const wrapper = shallow(<ClueContainer/>);
 
     // console.log("TESTING!");
     // expect(wrapper.find('img')).to.have.length(1);
