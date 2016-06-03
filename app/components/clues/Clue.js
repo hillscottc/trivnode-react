@@ -18,7 +18,6 @@ const Clue = ({
           {clue.question.split("<br />").map((line) =>
               <p>{line}</p>
           )}
-
         </span>
       </div>
       <form>

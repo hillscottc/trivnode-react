@@ -1,8 +1,9 @@
 import React, { PropTypes }  from 'react'
+import styles from './NumForm.css';
 
 
 const NumForm = ({ numToShow, changeNumToShow, numToShowOptions }) => (
-    <form>
+    <form className={styles.numForm}>
       <label>Num to show</label>
       <select onChange={e => changeNumToShow(e.target.value)}
               value={numToShow}>
