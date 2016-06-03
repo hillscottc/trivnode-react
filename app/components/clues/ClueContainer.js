@@ -1,12 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Clue from './Clue'
 
-function fuzzyMatch(guess, answer){
-  if (guess === "") return false;
-  if (answer === guess) return true;
-  const guess_re = new RegExp(guess, "gi");
-  return (guess.length > 3 && guess_re.test(answer));
-}
+
 
 export default class ClueContainer extends Component {
   constructor(props) {
@@ -16,8 +11,15 @@ export default class ClueContainer extends Component {
     this.showAnswerClick = this.showAnswerClick.bind(this);
   }
 
+  static fuzzyMatch(guess, answer){
+    if (guess === "") return false;
+    if (answer === guess) return true;
+    const guess_re = new RegExp(guess, "gi");
+    return (guess.length > 3 && guess_re.test(answer));
+  }
+
   answerChange(value) {
-    const right = fuzzyMatch(value, this.props.clue.answer);
+    const right = this.fuzzyMatch(value, this.props.clue.answer);
     this.setState({correct: right, showAnswer: right});
   }
 
