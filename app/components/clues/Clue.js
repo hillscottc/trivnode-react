@@ -1,4 +1,5 @@
 import React , {PropTypes }  from 'react'
+import styles from './Clue.css';
 
 
 const Clue = ({
@@ -8,13 +9,17 @@ const Clue = ({
     showAnswerClick,
     answerChange
 }) => (
-    <div >
-      <div>
+    <div className={styles.clue}>
+      <div className={styles.category}>
         <span>{clue.category}</span>
       </div>
-      <div>
-        <label>Q:</label>
-        <span>{clue.question}</span>
+      <div className={styles.question}>
+        <span>
+          {clue.question.split("<br />").map((line) =>
+              <p>{line}</p>
+          )}
+
+        </span>
       </div>
       <form>
         <input type="text"
