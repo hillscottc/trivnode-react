@@ -21,7 +21,7 @@ export default class CluesContainer extends Component {
     this.serverRequest =
         axios
             .get(`/api/clues/${numToShow}`)
-            .then(function(result) {
+            .then((result) => {
               _this.setState({
                 clues: result.data
               });

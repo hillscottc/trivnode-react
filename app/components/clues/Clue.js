@@ -41,7 +41,7 @@ Clue.propTypes = {
 };
 
 Clue.defaultProps = {
-  clue: {clue_id:1, category:"hist", question:"when", answer:"then"},
+  clue: {clue_id:1, category:"history", question:"when", answer:"then"},
   correct: false,
   showAnswer: false,
   showAnswerClick: (()  => {console.log("Click!")}),
