@@ -15,8 +15,8 @@ const Clue = ({
       </div>
       <div className={styles.question}>
         <span>
-          {clue.question.split("<br />").map((line) =>
-              <p>{line}</p>
+          {clue.question.split("<br />").map((line, index) =>
+              <p key={index}>{line}</p>
           )}
         </span>
       </div>
