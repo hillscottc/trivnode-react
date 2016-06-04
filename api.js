@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const pg = require('pg');
+const config = require('./config');
+
 
 // GET /api/clues -- 10 RANDOM clues with optional limit
 router.get('/clues/:limit?', (req, res) => {
@@ -8,7 +10,7 @@ router.get('/clues/:limit?', (req, res) => {
   const limit = req.params.limit ? req.params.limit : 10;
 
   const results = [];
-  pg.connect(process.env.DATABASE_URL, (err, client, done) => {
+  pg.connect(config.databaseUrl, (err, client, done) => {
     if(err) {
       done();
       console.log(err);
@@ -32,7 +34,7 @@ router.get('/clues/:limit?', (req, res) => {
 // GET /api/clues/cat/{id} -- clues by cat id
 router.get('/clues/cat/:id', (req, res) => {
   const results = [];
-  pg.connect(process.env.DATABASE_URL, (err, client, done) => {
+  pg.connect(config.databaseUrl, (err, client, done) => {
     if(err) {
       done();
       console.log(err);
@@ -57,7 +59,7 @@ router.get('/clues/cat/:id', (req, res) => {
 // GET /api/cats -- 20 RANDOM categories
 router.get('/cats', (req, res) => {
   const results = [];
-  pg.connect(process.env.DATABASE_URL, (err, client, done) => {
+  pg.connect(config.databaseUrl, (err, client, done) => {
     if(err) {
       done();
       console.log(err);
