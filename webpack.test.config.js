@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   output: {
     // YOU NEED TO SET libraryTarget: 'commonjs2'
