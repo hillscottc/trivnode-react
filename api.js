@@ -16,7 +16,7 @@ router.get('/clues/:limit?', (req, res) => {
     }
     // join with category name
     const query = client.query(
-        "SELECT b.clue_id, a.category_name AS category, b.question, b.answer FROM clue AS b " +
+        "SELECT b.clue_id, a.category_id, a.category_name AS category, b.question, b.answer FROM clue AS b " +
         "JOIN category AS a ON a.category_id = b.category_id ORDER BY random() LIMIT " + limit + ";");
     query.on('row', (row) => {
       results.push(row);
@@ -39,7 +39,7 @@ router.get('/clues/cat/:id', (req, res) => {
       return res.status(500).json({ success: false, data: err});
     }
     const query = client.query(
-        "SELECT a.category_name AS category, b.question, b.answer FROM clue AS b " +
+        "SELECT b.clue_id, a.category_id, a.category_name AS category, b.question, b.answer FROM clue AS b " +
         "JOIN category AS a ON a.category_id = b.category_id " +
         "WHERE b.category_id = $1;", [req.params.id]);
     query.on('row', (row) => {
