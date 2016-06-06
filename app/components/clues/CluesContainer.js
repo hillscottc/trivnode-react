@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import styles from './clues.css';
 import ClueContainer from './ClueContainer'
-import NumForm from './NumForm'
+import NumForm from '../NumForm'
 
 
 export default class CluesContainer extends Component {
@@ -16,7 +16,7 @@ export default class CluesContainer extends Component {
     this.changeNumToShow = this.changeNumToShow.bind(this);
   }
 
-  updateClues(numToShow) {
+  getData(numToShow) {
     console.log("getting clues", numToShow );
     const _this = this;
     this.serverRequest =
@@ -30,13 +30,12 @@ export default class CluesContainer extends Component {
   }
 
   componentDidMount() {
-    this.updateClues(this.state.numToShow);
+    this.getData(this.state.numToShow);
   }
 
   changeNumToShow(value) {
-    // this.props.dispatch(selectReddit(nextReddit));
     this.setState({numToShow: parseInt(value)});
-    this.updateClues(parseInt(value));
+    this.getData(parseInt(value));
   }
 
   render() {

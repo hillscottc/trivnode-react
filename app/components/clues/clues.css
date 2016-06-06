@@ -34,22 +34,22 @@
     margin: 0 0 0 10px;
 }
 
-
 .clueList nav {
     display: inline-block;
 }
 
 .clueList header {
     margin: 10px 0 0 5px;
+    font-size: x-large;
 }
 
 .clueList header span {
-    font-size: x-large;
     margin-right: 25px;
 }
 
 
 .numForm {
+    font-size: small;
     margin: 0px;
     background-color: lightblue;
     padding: 2px 3px 3px 5px;
@@ -57,10 +57,6 @@
 
 .numForm select {
     margin-left: 7px;
-}
-
-.numForm label {
-    font-size: smaller;
 }
 
 
