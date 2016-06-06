@@ -1,5 +1,5 @@
 import React, { PropTypes }  from 'react'
-import styles from './NumForm.css';
+import styles from './clues.css';
 
 
 const NumForm = ({ numToShow, changeNumToShow, numToShowOptions }) => (

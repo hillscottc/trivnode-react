@@ -1,5 +1,5 @@
 import React , {PropTypes }  from 'react'
-import styles from './Clue.css';
+import styles from './clues.css';
 
 
 const Clue = ({
