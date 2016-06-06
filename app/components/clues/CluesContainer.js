@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import styles from './clues.css';
 import ClueContainer from './ClueContainer'
 import NumForm from './NumForm'
 
@@ -41,14 +42,16 @@ export default class CluesContainer extends Component {
   render() {
     const {clues, numToShow, numToShowOptions} = this.state;
     return (
-        <div>
-          <div>
-            <NumForm
-                numToShow={numToShow}
-                changeNumToShow={this.changeNumToShow}
-                numToShowOptions={numToShowOptions}
-            />
-          </div>
+        <div className={styles.clueList}>
+          <header>
+            <span>Random Clues</span>
+            <nav>
+              <NumForm
+                  numToShow={numToShow}
+                  changeNumToShow={this.changeNumToShow}
+                  numToShowOptions={numToShowOptions} />
+            </nav>
+          </header>
           <div>
             {clues.map((clue) =>
                 <ClueContainer key={clue.clue_id} clue={clue} />

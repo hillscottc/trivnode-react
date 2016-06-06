@@ -4,7 +4,7 @@ import styles from './clues.css';
 
 const NumForm = ({ numToShow, changeNumToShow, numToShowOptions }) => (
     <form className={styles.numForm}>
-      <label>Num to show</label>
+      <label>showing</label>
       <select onChange={e => changeNumToShow(e.target.value)}
               value={numToShow}>
         {numToShowOptions.map(option =>
