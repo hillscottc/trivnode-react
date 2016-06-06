@@ -15,6 +15,9 @@ export default class App extends React.Component {
         <div className={styles.app}>
           <Header />
           <CluesContainer />
+
+          {this.props.children}
+
         </div>
     );
   }
