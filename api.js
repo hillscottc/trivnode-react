@@ -4,11 +4,9 @@ const pg = require('pg');
 const config = require('./config');
 
 
-// GET /api/clues -- 10 RANDOM clues with optional limit
+// GET /api/clues -- RANDOM clues with optional limit (10)
 router.get('/clues/:limit?', (req, res) => {
-
   const limit = req.params.limit ? req.params.limit : 10;
-
   const results = [];
   pg.connect(config.databaseUrl, (err, client, done) => {
     if(err) {
@@ -56,8 +54,9 @@ router.get('/clues/cat/:id', (req, res) => {
 
 
 
-// GET /api/cats -- 20 RANDOM categories
-router.get('/cats', (req, res) => {
+// GET /api/cats -- RANDOM categories with optional limit (20)
+router.get('/cats/:limit?', (req, res) => {
+  const limit = req.params.limit ? req.params.limit : 20;
   const results = [];
   pg.connect(config.databaseUrl, (err, client, done) => {
     if(err) {
@@ -65,7 +64,7 @@ router.get('/cats', (req, res) => {
       console.log(err);
       return res.status(500).json({ success: false, data: err});
     }
-    const query = client.query("SELECT * FROM category ORDER BY random() LIMIT 20;");
+    const query = client.query("SELECT * FROM category ORDER BY random() LIMIT " + limit + ";");
     query.on('row', (row)  =>{
       results.push(row);
     });
@@ -75,28 +74,6 @@ router.get('/cats', (req, res) => {
     });
   });
 });
-
-
-
-
-
-//// GET  /api/cats/r/  -- random categories with optional limit
-//router.get('/cats/r/:limit?', function(request, response) {
-//  var limit = request.params.limit;
-//  if (!limit) {
-//    limit = 10;  // default
-//  }
-//
-//  return Clue.getRandomCats(limit, function(err, cats) {
-//
-//    if (!err) {
-//      return response.send(cats);
-//    } else {
-//      return console.log(err);
-//    }
-//  });
-//
-//});
 
 
 module.exports = router;
