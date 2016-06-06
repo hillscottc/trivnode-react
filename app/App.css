@@ -6,3 +6,12 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+
+/* Box Sizing
+   http://blog.teamtreehouse.com/box-sizing-secret-simple-css-layouts */
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+

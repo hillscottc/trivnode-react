@@ -22,8 +22,12 @@ Uses [Mocha](https://mochajs.org/) + [Enzyme](https://github.com/airbnb/enzyme),
     npm test
 
 
-### Babel and Linting
-    
-    npm run eslint
+### References
+
+- css box-sizing
+    - [treehouse](http://blog.teamtreehouse.com/box-sizing-secret-simple-css-layouts)
+    - [w3schools](http://www.w3schools.com/cssref/css3_pr_box-sizing.asp)
+
+
 
 
