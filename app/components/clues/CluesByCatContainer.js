@@ -33,11 +33,11 @@ export default class CluesByCatContainer extends Component {
 
 
   render() {
-    const { clues, cat_id } = this.state;
+    const { clues } = this.state;
     return (
         <div className={styles.clueList}>
           <header>
-            <span>Clues By Category {cat_id}</span>
+            <span>Clues By Category</span>
           </header>
           <div>
             {clues.map((clue) =>

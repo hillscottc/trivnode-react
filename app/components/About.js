@@ -17,7 +17,7 @@ const About = () => (
         <li><a href="/api/cats/2">/api/cats/2</a></li>
       </ul>
       <h3>Clues by Category</h3>
-      <p><span className={styles.code}>/api/clues/cat/:id</span></p>
+      <p><span className={styles.code}>/api/clues/cat/:cat_id</span></p>
       <ul>
         <li><a href="/api/clues/cat/807">/api/clues/cat/807</a></li>
         <li><a href="/api/clues/cat/14300">/api/clues/cat/14300</a></li>

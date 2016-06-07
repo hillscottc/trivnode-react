@@ -1,10 +1,13 @@
 import React , {PropTypes }  from 'react'
+import { Link } from 'react-router'
 import styles from './cats.css';
 
 
 const Cat = ({cat}) => (
     <div className={styles.cat}>
-        <span>{cat.category_name}</span>
+      <Link to={"/clues/cat/" + cat.category_id}>
+        {cat.category_name}
+      </Link>
     </div>
 );
 

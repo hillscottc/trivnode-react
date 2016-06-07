@@ -1,6 +1,6 @@
 import React , {PropTypes }  from 'react'
+import { Link } from 'react-router'
 import styles from './clues.css';
-
 
 const Clue = ({
     clue,
@@ -11,7 +11,11 @@ const Clue = ({
 }) => (
     <div className={styles.clue}>
       <div className={styles.category}>
-        <span>{clue.category}</span>
+        <span>
+          <Link to={"/clues/cat/" + clue.category_id}>
+            {clue.category}
+          </Link>
+        </span>
       </div>
       <div className={styles.question}>
         <span>
