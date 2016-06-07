@@ -5,7 +5,7 @@ import styles from './cats.css';
 
 const Cat = ({cat}) => (
     <div className={styles.cat}>
-      <Link to={"/clues/cat/" + cat.category_id}>
+      <Link to={`/cat/${cat.category_id}/clues`}>
         {cat.category_name}
       </Link>
     </div>
