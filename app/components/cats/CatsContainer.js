@@ -4,7 +4,7 @@ import Cat from './Cat'
 import NumForm from '../NumForm'
 
 
-const CatsContainer = ({cats, changeNumToShow, numToShow, numToShowOptions }) => (
+const CatsContainer = ({cats, changeNumCatsToShow, numToShow, numToShowOptions }) => (
     <div className={styles.catList}>
       <header>
         <span>Random Categories</span>
@@ -12,7 +12,7 @@ const CatsContainer = ({cats, changeNumToShow, numToShow, numToShowOptions }) =>
           <NumForm
               numToShow={numToShow}
               numToShowOptions={numToShowOptions}
-              changeNumToShow={changeNumToShow}
+              changeNumToShow={changeNumCatsToShow}
           />
         </nav>
       </header>
@@ -29,11 +29,11 @@ export default CatsContainer;
 
 CatsContainer.propTypes = {
   cats: PropTypes.arrayOf(React.PropTypes.object).isRequired,
-  changeNumToShow: PropTypes.func.isRequired
+  changeNumCatsToShow: PropTypes.func.isRequired
 };
 
 
 CatsContainer.defaultProps = {
   cats: [{category_id: 1, category_name: "history"}, {category_id: 2, category_name: "math"}],
-  changeNumToShow: (()  => {console.log("Change!")})
+  changeNumCatsToShow: (()  => {console.log("Change!")})
 };

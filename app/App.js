@@ -10,7 +10,7 @@ export default class App extends React.Component {
       cats: [],
       numToShow: 5
     };
-    this.changeNumToShow = this.changeNumToShow.bind(this);
+    this.changeNumCatsToShow = this.changeNumCatsToShow.bind(this);
 
   }
 
@@ -31,7 +31,7 @@ export default class App extends React.Component {
     this.getCats(this.state.numToShow);
   }
 
-  changeNumToShow(value) {
+  changeNumCatsToShow(value) {
     this.setState({numToShow: parseInt(value)});
     this.getCats(parseInt(value));
   }
@@ -43,7 +43,7 @@ export default class App extends React.Component {
           <Header />
           {this.props.children  && React.cloneElement(this.props.children, {
             cats: cats,
-            changeNumToShow: this.changeNumToShow,
+            changeNumCatsToShow: this.changeNumCatsToShow,
             numToShowOptions: ["5", "10", "50"],
             numToShow: 5
           })}
