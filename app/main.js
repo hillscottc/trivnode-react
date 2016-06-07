@@ -6,11 +6,11 @@ import CluesContainer from './components/clues/CluesContainer';
 import CluesByCatContainer from './components/clues/CluesByCatContainer';
 import About from './components/About';
 
-import { Router, Route, hashHistory, IndexRoute } from 'react-router'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 
 ReactDOM.render((
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
       <Route path="/" component={App}>
 
         <IndexRoute component={CluesContainer}/>

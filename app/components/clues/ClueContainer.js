@@ -24,7 +24,7 @@ export default class ClueContainer extends Component {
   }
 
   showAnswerClick() {
-    this.setState({showAnswer: true});
+    this.setState({showAnswer: ! this.state.showAnswer});
   }
 
   render() {
