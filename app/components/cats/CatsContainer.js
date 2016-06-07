@@ -1,42 +1,39 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import styles from './cats.css';
 import Cat from './Cat'
 import NumForm from '../NumForm'
 
 
-export default class CatsContainer extends Component {
-  constructor(props) {
-    super(props);
+const CatsContainer = ({cats, changeNumToShow, numToShow, numToShowOptions }) => (
+    <div className={styles.catList}>
+      <header>
+        <span>Random Categories</span>
+        <nav>
+          <NumForm
+              numToShow={numToShow}
+              numToShowOptions={numToShowOptions}
+              changeNumToShow={changeNumToShow}
+          />
+        </nav>
+      </header>
+      <div>
+        {cats.map((cat) =>
+            <Cat key={cat.category_id} cat={cat} />
+        )}
+      </div>
+    </div>
+);
 
-    this.state = {
-      numToShow: 5,
-      numToShowOptions: ["5", "10", "50"]
-    };
-  }
+export default CatsContainer;
 
-  render() {
-    const {numToShow, numToShowOptions } = this.state;
-    const {cats, changeNumToShow} = this.props;
-    return (
-        <div className={styles.catList}>
-          <header>
-            <span>Random Categories</span>
-            <nav>
-              <NumForm
-                  numToShow={numToShow}
-                  numToShowOptions={numToShowOptions}
-                  changeNumToShow={changeNumToShow}
-              />
-            </nav>
-          </header>
-          <div>
-            {cats.map((cat) =>
-                <Cat key={cat.category_id} cat={cat} />
-            )}
-          </div>
-        </div>
-    );
-  }
-}
 
-CatsContainer.propTypes = {};
+CatsContainer.propTypes = {
+  cats: PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  changeNumToShow: PropTypes.func.isRequired
+};
+
+
+CatsContainer.defaultProps = {
+  cats: [{category_id: 1, category_name: "history"}, {category_id: 2, category_name: "math"}],
+  changeNumToShow: (()  => {console.log("Change!")})
+};

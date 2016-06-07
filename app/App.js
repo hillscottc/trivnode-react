@@ -14,8 +14,8 @@ export default class App extends React.Component {
 
   }
 
-  getData(numToShow) {
-    console.log("getting cats (App)", numToShow );
+  getCats(numToShow) {
+    console.log(`getting ${numToShow} cats.` );
     const _this = this;
     this.serverRequest =
         axios
@@ -28,12 +28,12 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getData(this.state.numToShow);
+    this.getCats(this.state.numToShow);
   }
 
   changeNumToShow(value) {
     this.setState({numToShow: parseInt(value)});
-    this.getData(parseInt(value));
+    this.getCats(parseInt(value));
   }
   
   render() {
@@ -43,7 +43,9 @@ export default class App extends React.Component {
           <Header />
           {this.props.children  && React.cloneElement(this.props.children, {
             cats: cats,
-            changeNumToShow:this.changeNumToShow
+            changeNumToShow: this.changeNumToShow,
+            numToShowOptions: ["5", "10", "50"],
+            numToShow: 5
           })}
         </div>
     );
