@@ -13,7 +13,7 @@ ReactDOM.render((
     <Router history={browserHistory}>
       <Route path="/" component={App}>
 
-        <IndexRoute component={CluesContainer}/>
+        <IndexRoute component={CatsContainer}/>
 
         <Route path="/cats" component={CatsContainer}/>
         <Route path="/clues" component={CluesContainer}/>
