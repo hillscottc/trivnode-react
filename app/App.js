@@ -3,19 +3,25 @@ import axios from 'axios';
 import Header from './components/Header'
 import styles from './App.css';
 
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       cats: [],
-      numToShow: 5
+      clues: [],
+      numCatsToShow: 5,
+      numCluesToShow: 5,
+      catsToShowOptions: ["5", "10", "50"],
+      cluesToShowOptions: ["5", "10", "50"]
     };
-    this.changeNumCatsToShow = this.changeNumCatsToShow.bind(this);
 
+    this.changeNumCatsToShow = this.changeNumCatsToShow.bind(this);
+    this.changeNumCluesToShow = this.changeNumCluesToShow.bind(this);
   }
 
   getCats(numToShow) {
-    console.log(`getting ${numToShow} cats.` );
+    console.log(`Getting ${numToShow} cats.` );
     const _this = this;
     this.serverRequest =
         axios
@@ -27,25 +33,48 @@ export default class App extends React.Component {
             })
   }
 
+  getClues(numToShow) {
+    console.log(`Getting ${numToShow} clues.`);
+    const _this = this;
+    this.serverRequest =
+        axios
+            .get(`/api/clues/${numToShow}`)
+            .then((result) => {
+              _this.setState({
+                clues: result.data
+              });
+            })
+  } 
+
   componentDidMount() {
-    this.getCats(this.state.numToShow);
+    this.getCats(this.state.numCatsToShow);
+    this.getClues(this.state.numCluesToShow);
   }
 
   changeNumCatsToShow(value) {
-    this.setState({numToShow: parseInt(value)});
+    this.setState({numCatsToShow: parseInt(value)});
     this.getCats(parseInt(value));
+  }
+
+  changeNumCluesToShow(value) {
+    this.setState({numCluesToShow: parseInt(value)});
+    this.getClues(parseInt(value));
   }
   
   render() {
-    const {cats} = this.state;
+    const {cats, clues, catsToShowOptions, cluesToShowOptions, numCatsToShow, numCluesToShow} = this.state;
     return (
         <div className={styles.app}>
           <Header />
           {this.props.children  && React.cloneElement(this.props.children, {
             cats: cats,
+            clues: clues,
+            catsToShowOptions: catsToShowOptions,
+            cluesToShowOptions: cluesToShowOptions,
+            numCatsToShow: numCatsToShow,
+            numCluesToShow: numCluesToShow,
             changeNumCatsToShow: this.changeNumCatsToShow,
-            numToShowOptions: ["5", "10", "50"],
-            numToShow: 5
+            changeNumCluesToShow: this.changeNumCluesToShow
           })}
         </div>
     );

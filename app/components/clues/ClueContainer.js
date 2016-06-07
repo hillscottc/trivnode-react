@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import Clue from './Clue'
 
 
-
 export default class ClueContainer extends Component {
   constructor(props) {
     super(props);
