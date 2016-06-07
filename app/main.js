@@ -17,7 +17,7 @@ ReactDOM.render((
 
         <Route path="/cats" component={CatsContainer}/>
         <Route path="/clues" component={CluesContainer}/>
-        <Route path="/clues/cat/:cat_id" component={CluesByCatContainer}/>
+        <Route path="/cat/:cat_id/clues" component={CluesByCatContainer}/>
         <Route path="/about" component={About}/>
       </Route>
     </Router>

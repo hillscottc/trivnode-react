@@ -12,7 +12,7 @@ const Clue = ({
     <div className={styles.clue}>
       <div className={styles.category}>
         <span>
-          <Link to={"/clues/cat/" + clue.category_id}>
+          <Link to={`/cat/${clue.category_id}/clues`}>
             {clue.category}
           </Link>
         </span>
