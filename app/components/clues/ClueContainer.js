@@ -18,7 +18,7 @@ export default class ClueContainer extends Component {
   }
 
   answerChange(value) {
-    const right = this.fuzzyMatch(value, this.props.clue.answer);
+    const right = ClueContainer.fuzzyMatch(value, this.props.clue.answer);
     this.setState({correct: right, showAnswer: right});
   }
 

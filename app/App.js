@@ -10,9 +10,9 @@ export default class App extends React.Component {
     this.state = {
       cats: [],
       clues: [],
-      numCatsToShow: 5,
+      numCatsToShow: 10,
       numCluesToShow: 5,
-      catsToShowOptions: ["5", "10", "50"],
+      catsToShowOptions: ["10", "20", "50"],
       cluesToShowOptions: ["5", "10", "50"]
     };
 
