@@ -1,8 +1,8 @@
 import React, { PropTypes }  from 'react'
-import styles from './Numform.css';
+import styles from './NumSelector.css';
 
 
-const NumForm = ({ numToShow, changeNumToShow, numToShowOptions }) => (
+const NumSelector = ({ numToShow, changeNumToShow, numToShowOptions }) => (
     <form className={styles.numForm}>
       <label>showing</label>
       <select onChange={e => changeNumToShow(e.target.value)}
@@ -16,18 +16,18 @@ const NumForm = ({ numToShow, changeNumToShow, numToShowOptions }) => (
     </form>
 );
 
-NumForm.propTypes = {
+NumSelector.propTypes = {
   numToShow: PropTypes.number.isRequired,
   changeNumToShow: PropTypes.func.isRequired,
   numToShowOptions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
 };
 
-NumForm.defaultProps = {
+NumSelector.defaultProps = {
   numToShow: 3,
   changeNumToShow: (()  => {console.log("Click!")}),
   numToShowOptions: ["3", "5"]
 };
 
-export default NumForm;
+export default NumSelector;
 
 

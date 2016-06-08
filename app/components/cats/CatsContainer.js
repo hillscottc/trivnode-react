@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import styles from './cats.css';
 import Cat from './Cat'
-import NumForm from '../NumForm'
+import NumSelector from '../NumSelector'
 
 
 const CatsContainer = ({cats, changeNumCatsToShow, numCatsToShow, catsToShowOptions }) => (
@@ -9,7 +9,7 @@ const CatsContainer = ({cats, changeNumCatsToShow, numCatsToShow, catsToShowOpti
       <header>
         <span>Random Categories</span>
         <nav>
-          <NumForm
+          <NumSelector
               numToShow={numCatsToShow}
               numToShowOptions={catsToShowOptions}
               changeNumToShow={changeNumCatsToShow}

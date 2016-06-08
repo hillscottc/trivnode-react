@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import styles from './clues.css';
 import ClueContainer from './ClueContainer'
-import NumForm from '../NumForm'
+import NumSelector from '../NumSelector'
 
 
 const CluesContainer = ({clues, changeNumCluesToShow, numCluesToShow, cluesToShowOptions }) => (
@@ -9,7 +9,7 @@ const CluesContainer = ({clues, changeNumCluesToShow, numCluesToShow, cluesToSho
       <header>
         <span>Random Clues</span>
         <nav>
-          <NumForm
+          <NumSelector
               numToShow={numCluesToShow}
               changeNumToShow={changeNumCluesToShow}
               numToShowOptions={cluesToShowOptions} />
