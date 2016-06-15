@@ -11,64 +11,53 @@ const config = require('./config');
 const app = express();
 const api = require('./api');
 
-
-var passport = require('passport')
-    , LocalStrategy = require('passport-local').Strategy;
-const expressSession = require('express-session');
-app.use(expressSession({secret: 'mySecretKey'}));
+const passport = require('passport');
+const GithubStrategy = require('passport-github').Strategy;
+const session = require('express-session');
+app.use(session({secret: "-- ENTER CUSTOM SESSION SECRET --"}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
-
-// passport/login.js
-passport.use('login', new LocalStrategy({
-      passReqToCallback : true
+passport.use(new GithubStrategy({
+      clientID: "ea6201cabab124b22a9c",
+      clientSecret: "79d9ed59fb8ae375db65c1fb4f724213dd1b6724",
+      callbackURL: "http://localhost:3000/auth/github/callback"
     },
-    function(req, username, password, done) {
+    function(accessToken, refreshToken, profile, done) {
+      return done(null, profile);
+    }
+));
 
 
-      return done(null, {user_id: "1", username: "shill"});
+passport.serializeUser(function(user, done) {
+  // placeholder for custom user serialization
+  // null is for errors
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  // placeholder for custom user deserialization.
+  // maybe you are going to get the user from mongo by id?
+  // null is for errors
+  done(null, user);
+});
+
+app.get('/logout', function(req, res){
+  console.log('logging out');
+  req.logout();
+  res.redirect('/');
+});
 
 
-      // check in mongo if a user with username exists or not
-      // User.findOne({ 'username' :  username },
-      //     function(err, user) {
-      //       // In case of any error, return using the done method
-      //       if (err)
-      //         return done(err);
-      //       // Username does not exist, log error & redirect back
-      //       if (!user){
-      //         console.log('User Not Found with username '+username);
-      //         return done(null, false,
-      //             req.flash('message', 'User Not found.'));
-      //       }
-      //       // User exists but wrong password, log the error
-      //       if (!isValidPassword(user, password)){
-      //         console.log('Invalid Password');
-      //         return done(null, false,
-      //             req.flash('message', 'Invalid Password'));
-      //       }
-      //       // User and password both match, return user from
-      //       // done method which will be treated like success
-      //       return done(null, user);
-      //     }
-      // );
-    })
-);
+// we will call this to start the GitHub Login process
+app.get('/auth/github', passport.authenticate('github'));
 
-
-
-app.post('/login',
-    passport.authenticate('login'),
+// GitHub will call this URL
+app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }),
     function(req, res) {
-      console.log("Login", req.user);
-      res.redirect('/' + req.user.username);
-    });
-
-
-
+      res.redirect('/');
+    }
+);
 
 
 // Enable api routes
@@ -98,6 +87,11 @@ if (config.isDeveloping) {
 } else {
   app.use(express.static(__dirname + '/dist'));
   app.get('*', function response(req, res) {
+
+    if (req.isAuthenticated()) {
+      console.log("authenticated as user", req.user);
+    }
+
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
 }

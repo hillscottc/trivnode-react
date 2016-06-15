@@ -12,6 +12,8 @@ const Header = () => (
           <li><Link to="/cats" activeClassName={styles.active} >cats</Link></li>
           <li><Link to="/clues" activeClassName={styles.active}>clues</Link></li>
           <li><Link to="/about" activeClassName={styles.active}>about</Link></li>
+          <li><a href='/auth/github'>GitHub</a></li>
+          <li><a href='/logout'>logout</a></li>
         </ul>
       </nav>
     </header>
