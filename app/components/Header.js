@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './Header.css';
 import { Link } from 'react-router'
-import grassImg from '../grass2.wide.png'
 
 const Header = () => (
     <header className={styles.header}>
@@ -15,7 +14,6 @@ const Header = () => (
           <li><Link to="/about" activeClassName={styles.active}>about</Link></li>
         </ul>
       </nav>
-      <img src={grassImg} />
     </header>
 );
 

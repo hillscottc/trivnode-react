@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './About.css';
+import grassImg from '../grass2.wide.png'
 
 const About = () => (
     <div className={styles.about}>
@@ -22,6 +23,7 @@ const About = () => (
         <li><a href="/api/clues/cat/807">/api/clues/cat/807</a></li>
         <li><a href="/api/clues/cat/14300">/api/clues/cat/14300</a></li>
       </ul>
+      <img src={grassImg} />
     </div>
 );
 
