@@ -25,7 +25,7 @@ export default class App extends React.Component {
     const _this = this;
     this.serverRequest =
         axios
-            .get(`${config.apiUrl}/api/cats/${numToShow}`)
+            .get(`${config.apiUrl}/trivia/cats/${numToShow}`)
             .then((result) => {
               _this.setState({
                 cats: result.data
@@ -38,7 +38,7 @@ export default class App extends React.Component {
     const _this = this;
     this.serverRequest =
         axios
-            .get(`${config.apiUrl}/api/clues/${numToShow}`)
+            .get(`${config.apiUrl}/trivia/clues/${numToShow}`)
             .then((result) => {
               _this.setState({
                 clues: result.data
