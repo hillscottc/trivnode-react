@@ -7,6 +7,8 @@ module.exports = {
   ga_id: process.env.GA_ID || '83510105-1',
 
   // apiUrl: 'http://localhost:3000', // redundant local server
-  apiUrl: 'http://localhost:3001' // datahub
+  // API_HOST: process.env.REACT_APP_API_HOST || 'https://sch-datahub.herokuapp.com'
+  API_HOST: process.env.REACT_APP_API_HOST || 'http://localhost:3001'
+
 };
 

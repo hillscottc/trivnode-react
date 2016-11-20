@@ -20,7 +20,7 @@ export default class CluesByCatContainer extends Component {
     const _this = this;
     this.serverRequest =
         axios
-            .get(`${config.apiUrl}/trivia/clues/cat/${cat_id}`)
+            .get(`${config.API_HOST}/trivia/clues/cat/${cat_id}`)
             .then((result) => {
               _this.setState({
                 clues: result.data
