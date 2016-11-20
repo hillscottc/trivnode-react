@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import Header from './components/Header'
+import Header from './components/Header';
 import styles from './App.css';
-
+import config from '../config';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export default class App extends React.Component {
     const _this = this;
     this.serverRequest =
         axios
-            .get(`/api/cats/${numToShow}`)
+            .get(`${config.apiUrl}/api/cats/${numToShow}`)
             .then((result) => {
               _this.setState({
                 cats: result.data
@@ -38,7 +38,7 @@ export default class App extends React.Component {
     const _this = this;
     this.serverRequest =
         axios
-            .get(`/api/clues/${numToShow}`)
+            .get(`${config.apiUrl}/api/clues/${numToShow}`)
             .then((result) => {
               _this.setState({
                 clues: result.data
