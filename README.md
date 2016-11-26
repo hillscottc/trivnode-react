@@ -7,7 +7,7 @@ Based on [The ultimate Webpack setup](http://www.christianalfoni.com/articles/20
 - Basic React on the client, no Redux.
 - Hot module replacement in development.
 - [CSS modules](http://glenmaddern.com/articles/css-modules).
-- Postgres database
+- Pulls data from [https://github.com/hillscottc/datahub]
 
 
 ## Running 
