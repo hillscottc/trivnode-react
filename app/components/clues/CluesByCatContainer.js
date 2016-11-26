@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import styles from './clues.css';
 import ClueContainer from './ClueContainer'
+import config from '../../../config';
 
 
 export default class CluesByCatContainer extends Component {
@@ -19,7 +20,7 @@ export default class CluesByCatContainer extends Component {
     const _this = this;
     this.serverRequest =
         axios
-            .get(`/api/clues/cat/${cat_id}`)
+            .get(`${config.API_HOST}/trivia/clues/cat/${cat_id}`)
             .then((result) => {
               _this.setState({
                 clues: result.data
